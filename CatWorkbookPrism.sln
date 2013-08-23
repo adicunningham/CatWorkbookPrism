@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatWorkbookPrismPoc.Infrastructure", "Src\CatWorkbookPrismPoc.Infrastructure\CatWorkbookPrismPoc.Infrastructure.csproj", "{EAAB4E07-A770-402B-BB2C-9FC4CF8F7D41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatWorkbookPrismPoc", "Src\CatWorkbookPrismPoc\CatWorkbookPrismPoc.csproj", "{B7340307-44DE-4309-9E86-3154EA296DA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatWorkbookPrismPoc.Entities", "Src\CatWorkbookPrismPoc.Entities\CatWorkbookPrismPoc.Entities.csproj", "{54B2F4C9-00DC-4555-85BD-11CD7E11AEDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{0910A9C6-D901-4E70-9668-7419D0687672}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{88BDBDA4-06E9-43F0-B37B-2EB5BA83012F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{7094E35E-D894-4003-A287-91EAAAFF35A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatWorkbookPrismPoc.Services", "Src\Services\CatWorkbookPrismPoc.Services\CatWorkbookPrismPoc.Services.csproj", "{15B3E0D2-6217-493A-A690-158C497F5318}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{59F9F0EC-F86E-4EBA-AE49-7437AA5F8945}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatWorkbookPrismPoc.Services.UnitTests", "Src\UnitTests\CatWorkbookPrismPoc.Services.UnitTests\CatWorkbookPrismPoc.Services.UnitTests.csproj", "{B3849F0E-9821-4A3C-99E2-6104CC48555A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAAB4E07-A770-402B-BB2C-9FC4CF8F7D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAAB4E07-A770-402B-BB2C-9FC4CF8F7D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAAB4E07-A770-402B-BB2C-9FC4CF8F7D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAAB4E07-A770-402B-BB2C-9FC4CF8F7D41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7340307-44DE-4309-9E86-3154EA296DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7340307-44DE-4309-9E86-3154EA296DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7340307-44DE-4309-9E86-3154EA296DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7340307-44DE-4309-9E86-3154EA296DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54B2F4C9-00DC-4555-85BD-11CD7E11AEDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54B2F4C9-00DC-4555-85BD-11CD7E11AEDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54B2F4C9-00DC-4555-85BD-11CD7E11AEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54B2F4C9-00DC-4555-85BD-11CD7E11AEDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3849F0E-9821-4A3C-99E2-6104CC48555A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3849F0E-9821-4A3C-99E2-6104CC48555A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3849F0E-9821-4A3C-99E2-6104CC48555A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3849F0E-9821-4A3C-99E2-6104CC48555A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{15B3E0D2-6217-493A-A690-158C497F5318} = {7094E35E-D894-4003-A287-91EAAAFF35A9}
+		{B3849F0E-9821-4A3C-99E2-6104CC48555A} = {59F9F0EC-F86E-4EBA-AE49-7437AA5F8945}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{54B2F4C9-00DC-4555-85BD-11CD7E11AEDC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CatWorkbookPrismPoc.Entities</RootNamespace>
+    <AssemblyName>CatWorkbookPrismPoc.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.0.0-rc1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.0.0-rc1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\captured_columns.cs" />
+    <Compile Include="Models\change_tables.cs" />
+    <Compile Include="Models\ddl_history.cs" />
+    <Compile Include="Models\ErrorLog.cs" />
+    <Compile Include="Models\index_columns.cs" />
+    <Compile Include="Models\Layer.cs" />
+    <Compile Include="Models\Layer_Audit_CT.cs" />
+    <Compile Include="Models\lsn_time_mapping.cs" />
+    <Compile Include="Models\Mapping\captured_columnsMap.cs" />
+    <Compile Include="Models\Mapping\change_tablesMap.cs" />
+    <Compile Include="Models\Mapping\ddl_historyMap.cs" />
+    <Compile Include="Models\Mapping\ErrorLogMap.cs" />
+    <Compile Include="Models\Mapping\index_columnsMap.cs" />
+    <Compile Include="Models\Mapping\LayerMap.cs" />
+    <Compile Include="Models\Mapping\Layer_Audit_CTMap.cs" />
+    <Compile Include="Models\Mapping\lsn_time_mappingMap.cs" />
+    <Compile Include="Models\Mapping\NamedRangeMap.cs" />
+    <Compile Include="Models\Mapping\PricingStageTypeMap.cs" />
+    <Compile Include="Models\Mapping\PricingStageType_Audit_CTMap.cs" />
+    <Compile Include="Models\Mapping\ProgramMap.cs" />
+    <Compile Include="Models\Mapping\ProgramNoteMap.cs" />
+    <Compile Include="Models\Mapping\ProgramNotes_Audit_CTMap.cs" />
+    <Compile Include="Models\Mapping\ProgramSessionMap.cs" />
+    <Compile Include="Models\Mapping\ProgramStatuMap.cs" />
+    <Compile Include="Models\Mapping\SnapshotMap.cs" />
+    <Compile Include="Models\Mapping\static_serversMap.cs" />
+    <Compile Include="Models\Mapping\systranschemaMap.cs" />
+    <Compile Include="Models\NamedRange.cs" />
+    <Compile Include="Models\PricingStageType.cs" />
+    <Compile Include="Models\PricingStageType_Audit_CT.cs" />
+    <Compile Include="Models\Program.cs" />
+    <Compile Include="Models\ProgramNote.cs" />
+    <Compile Include="Models\ProgramNotes_Audit_CT.cs" />
+    <Compile Include="Models\ProgramSession.cs" />
+    <Compile Include="Models\ProgramStatu.cs" />
+    <Compile Include="Models\Snapshot.cs" />
+    <Compile Include="Models\static_servers.cs" />
+    <Compile Include="Models\systranschema.cs" />
+    <Compile Include="Models\UWWorkbookContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
