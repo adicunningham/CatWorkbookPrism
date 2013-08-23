@@ -62,7 +62,19 @@ namespace CatWorkbookPrismPoc.Services.Behaviours
         {
             try
             {
-                throw new FaultException<ServiceException>(ExceptionManager.HandleException("Program ID was not found"));
+                using (var context = new DataModel.UWWorkbookContext())
+                {
+                    var program = context.Programs.Where(p => p.ProgramID == programId).FirstOrDefault();
+
+                    if (program == null)
+                    {
+                        throw new FaultException<ServiceException>(
+                            ExceptionManager.HandleException(string.Format("Program ID {0} was not found.", programId)));
+                    }
+
+                    DataContract.Program dcProgram = Mapper.Map<DataContract.Program>(program);
+                    return dcProgram;
+                }
             }
             catch (Exception ex)
             {
