@@ -185,6 +185,11 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
             });
 
         }
+
+        private async void LoadPrograms()
+        {
+            
+        }
         #endregion
 
     }
