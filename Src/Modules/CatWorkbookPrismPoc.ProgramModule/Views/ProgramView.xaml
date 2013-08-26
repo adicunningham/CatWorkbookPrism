@@ -60,13 +60,13 @@
                 </Grid.ColumnDefinitions>
                 
                 <TextBlock Text="Underwriter:" Margin="5" Grid.Row="0" Grid.Column="0"/>
-                <ComboBox Grid.Row="0" Grid.Column="1"></ComboBox>
+                <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Underwriters}" SelectedValuePath="Key" DisplayMemberPath="Value"  Width="200px" Margin="5"/>
 
                 <TextBlock Text="Year:" Margin="5" Grid.Row="1" Grid.Column="0"/>
-                <ComboBox Grid.Row="1" Grid.Column="1"></ComboBox>
+                <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding EffectiveYears}" Margin="5"/>
 
-                <TextBlock Text="Year:" Margin="5" Grid.Row="2" Grid.Column="0"/>
-                <ComboBox Grid.Row="2" Grid.Column="1"></ComboBox>
+                <TextBlock Text="Programs:" Margin="5" Grid.Row="2" Grid.Column="0"/>
+                <ComboBox Grid.Row="2" Grid.Column="1" Margin="5"></ComboBox>
 
                 <Button Content="Load Program" Command="{Binding LoadProgram}" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="5"/>
             </Grid>

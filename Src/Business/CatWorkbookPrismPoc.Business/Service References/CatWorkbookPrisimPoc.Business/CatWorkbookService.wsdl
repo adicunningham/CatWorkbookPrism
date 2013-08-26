@@ -6,6 +6,7 @@
       <xsd:import schemaLocation="http://localhost/CatWorkbookPrismPoc.WebServiceHost/CatWorkbookService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CatWorkbookPrismPoc.Services.Contracts.Faults" />
       <xsd:import schemaLocation="http://localhost/CatWorkbookPrismPoc.WebServiceHost/CatWorkbookService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost/CatWorkbookPrismPoc.WebServiceHost/CatWorkbookService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CatWorkbookPrismPoc.Services.Contracts.Data" />
+      <xsd:import schemaLocation="http://localhost/CatWorkbookPrismPoc.WebServiceHost/CatWorkbookService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ICatWorkbookService_GetProgramById_InputMessage">
@@ -17,17 +18,69 @@
   <wsdl:message name="ICatWorkbookService_GetProgramById_ServiceExceptionFault_FaultMessage">
     <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/CatWorkbookPrismPoc.Services.Contracts.Faults" name="detail" element="q1:ServiceException" />
   </wsdl:message>
+  <wsdl:message name="ICatWorkbookService_GetUnderwriters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnderwriters" />
+  </wsdl:message>
+  <wsdl:message name="ICatWorkbookService_GetUnderwriters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnderwritersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatWorkbookService_GetUnderwriters_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/CatWorkbookPrismPoc.Services.Contracts.Faults" name="detail" element="q2:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="ICatWorkbookService_GetEffectiveYears_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEffectiveYears" />
+  </wsdl:message>
+  <wsdl:message name="ICatWorkbookService_GetEffectiveYears_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEffectiveYearsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatWorkbookService_GetEffectiveYears_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/CatWorkbookPrismPoc.Services.Contracts.Faults" name="detail" element="q3:ServiceException" />
+  </wsdl:message>
   <wsdl:portType name="ICatWorkbookService">
     <wsdl:operation name="GetProgramById">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatWorkbookService/GetProgramById" message="tns:ICatWorkbookService_GetProgramById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatWorkbookService/GetProgramByIdResponse" message="tns:ICatWorkbookService_GetProgramById_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/ICatWorkbookService/GetProgramByIdServiceExceptionFault" name="ServiceExceptionFault" message="tns:ICatWorkbookService_GetProgramById_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetUnderwriters">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatWorkbookService/GetUnderwriters" message="tns:ICatWorkbookService_GetUnderwriters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatWorkbookService/GetUnderwritersResponse" message="tns:ICatWorkbookService_GetUnderwriters_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICatWorkbookService/GetUnderwritersServiceExceptionFault" name="ServiceExceptionFault" message="tns:ICatWorkbookService_GetUnderwriters_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEffectiveYears">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatWorkbookService/GetEffectiveYears" message="tns:ICatWorkbookService_GetEffectiveYears_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatWorkbookService/GetEffectiveYearsResponse" message="tns:ICatWorkbookService_GetEffectiveYears_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICatWorkbookService/GetEffectiveYearsServiceExceptionFault" name="ServiceExceptionFault" message="tns:ICatWorkbookService_GetEffectiveYears_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CatWorkbookService" type="tns:ICatWorkbookService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetProgramById">
       <soap:operation soapAction="http://tempuri.org/ICatWorkbookService/GetProgramById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnderwriters">
+      <soap:operation soapAction="http://tempuri.org/ICatWorkbookService/GetUnderwriters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEffectiveYears">
+      <soap:operation soapAction="http://tempuri.org/ICatWorkbookService/GetEffectiveYears" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

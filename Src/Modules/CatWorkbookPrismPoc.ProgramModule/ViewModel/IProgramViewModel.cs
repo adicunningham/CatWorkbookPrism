@@ -1,4 +1,5 @@
-﻿using CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business;
+﻿using System.Collections.Generic;
+using CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business;
 using CatWorkbookPrismPoc.Infrastructure;
 
 namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
@@ -8,5 +9,9 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
         Program Program { get; set; }
 
         bool IsBusy { get; set; }
+
+        Dictionary<int, string> Underwriters { get; set; } 
+
+        IList<int> EffectiveYears { get; set; } 
     }
 }

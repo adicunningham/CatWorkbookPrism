@@ -83,5 +83,38 @@ namespace CatWorkbookPrismPoc.Services.Behaviours
             }
         }
 
+
+        /// <summary>
+        /// Returns a dictionary containing all Underwriters.
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<int, string> GetUnderwriters()
+        {
+            using (var context = new DataModel.UWWorkbookContext())
+            {
+                var uwList =
+                    context.Programs.OrderBy(p => p.UnderwriterName)
+                        .Select(p => new {UnderwriterID = p.UnderwriterID, UnderwriterName = p.UnderwriterName})
+                        .Distinct()
+                        .ToList();
+
+                var uwDictionary = uwList.OrderBy(p => p.UnderwriterName).ToDictionary(u => u.UnderwriterID, u => u.UnderwriterName);
+
+                return uwDictionary;
+            }
+        }
+
+        /// <summary>
+        /// Returns a List of Effective Years
+        /// </summary>
+        /// <returns></returns>
+        public IList<int> GetEffectiveYears()
+        {
+            using (var context = new DataModel.UWWorkbookContext())
+            {
+                IList<int> years = context.Programs.Select(p => p.EffectiveDate.Value.Year).Distinct().OrderBy(p => p).ToList();
+                return years;
+            }
+        }
     }
 }

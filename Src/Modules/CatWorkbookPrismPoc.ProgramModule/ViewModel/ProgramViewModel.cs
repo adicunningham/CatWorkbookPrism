@@ -1,4 +1,7 @@
-﻿using CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters;
+using System.Threading.Tasks;
+using CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business;
 using CatWorkbookPrismPoc.Infrastructure;
 using CatWorkbookPrismPoc.Infrastructure.Commands;
 using CatWorkbookPrismPoc.Infrastructure.Repositories;
@@ -31,9 +34,12 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
             LoadProgramCommand = new DelegateCommand(SelectProgram, CanSelectProgram);
             ApplicationCommands.OpenProgram.RegisterCommand(LoadProgramCommand);
 
-
-            LoadProgram();
+            LoadEffectiveYears();
+            LoadUnderwriters();
+            //LoadProgram();
         }
+
+
        
         #endregion
 
@@ -43,7 +49,7 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
 
         private bool CanSelectProgram()
         {
-            return true;
+            return (Underwriters != null && Underwriters.Count > 0) && (EffectiveYears != null && EffectiveYears.Count > 0);
         }
 
         private void SelectProgram()
@@ -106,6 +112,35 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
             }
         }
 
+        private Dictionary<int, string> _underwriters; 
+        public Dictionary<int, string> Underwriters
+        {
+            get
+            {
+                return _underwriters;
+            }
+            set
+            {
+                _underwriters = value;
+                RaisePropertyChanged("Underwriters");
+            }
+        }
+
+        private IList<int> _effectiveYears;
+
+        public IList<int> EffectiveYears
+        {
+            get
+            {
+                return _effectiveYears;
+            }
+            set
+            {
+                _effectiveYears = value;
+                RaisePropertyChanged("EffectiveYears");
+            }
+        }
+ 
         #endregion
 
         #region Methods
@@ -121,7 +156,35 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
             });
         }
 
+        /// <summary>
+        /// Loads a list of underwriters asynchronously.
+        /// </summary>
+        private async void LoadUnderwriters()
+        {
+            var uwTask = Task.Factory.StartNew(() => _programService.GetUnderwritersAsync());
+            var uwDictionary = await uwTask;
+            await uwDictionary.ContinueWith(e =>
+            {   
+                if (e.IsCompleted)
+                {
+                    Underwriters = e.Result;
+                }
+            });
+        }
 
+        private async void LoadEffectiveYears()
+        {
+            var yearsTask = Task.Factory.StartNew(() => _programService.GetEffectiveYearsAsync());
+            var years = await yearsTask;
+            await years.ContinueWith(e =>
+            {
+                if (e.IsCompleted)
+                {
+                    EffectiveYears = e.Result;
+                }
+            });
+
+        }
         #endregion
 
     }

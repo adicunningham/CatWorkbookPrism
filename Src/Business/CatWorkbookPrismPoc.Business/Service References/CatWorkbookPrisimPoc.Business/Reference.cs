@@ -468,6 +468,22 @@ namespace CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatWorkbookService/GetProgramById", ReplyAction="http://tempuri.org/ICatWorkbookService/GetProgramByIdResponse")]
         System.Threading.Tasks.Task<CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business.Program> GetProgramByIdAsync(int programId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatWorkbookService/GetUnderwriters", ReplyAction="http://tempuri.org/ICatWorkbookService/GetUnderwritersResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business.ServiceException), Action="http://tempuri.org/ICatWorkbookService/GetUnderwritersServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/CatWorkbookPrismPoc.Services.Contracts.Fa" +
+            "ults")]
+        System.Collections.Generic.Dictionary<int, string> GetUnderwriters();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatWorkbookService/GetUnderwriters", ReplyAction="http://tempuri.org/ICatWorkbookService/GetUnderwritersResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> GetUnderwritersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatWorkbookService/GetEffectiveYears", ReplyAction="http://tempuri.org/ICatWorkbookService/GetEffectiveYearsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business.ServiceException), Action="http://tempuri.org/ICatWorkbookService/GetEffectiveYearsServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/CatWorkbookPrismPoc.Services.Contracts.Fa" +
+            "ults")]
+        int[] GetEffectiveYears();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatWorkbookService/GetEffectiveYears", ReplyAction="http://tempuri.org/ICatWorkbookService/GetEffectiveYearsResponse")]
+        System.Threading.Tasks.Task<int[]> GetEffectiveYearsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -503,6 +519,22 @@ namespace CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business {
         
         public System.Threading.Tasks.Task<CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business.Program> GetProgramByIdAsync(int programId) {
             return base.Channel.GetProgramByIdAsync(programId);
+        }
+        
+        public System.Collections.Generic.Dictionary<int, string> GetUnderwriters() {
+            return base.Channel.GetUnderwriters();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> GetUnderwritersAsync() {
+            return base.Channel.GetUnderwritersAsync();
+        }
+        
+        public int[] GetEffectiveYears() {
+            return base.Channel.GetEffectiveYears();
+        }
+        
+        public System.Threading.Tasks.Task<int[]> GetEffectiveYearsAsync() {
+            return base.Channel.GetEffectiveYearsAsync();
         }
     }
 }

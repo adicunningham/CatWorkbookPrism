@@ -27,5 +27,25 @@ namespace CatWorkbookPrismPoc.Services.UnitTests
             Assert.IsNotNull(program) ;
         }
 
+        [Test, Description("Test verifies that a dictionary of underwriters was returned")]
+        public void TestGetUnderwriters()
+        {
+            ICatWorkbookService catWorkbookService = new CatWorkbookService();
+
+            Dictionary<int, string> uwDictionary = catWorkbookService.GetUnderwriters();
+          
+            Assert.Greater(uwDictionary.Count, 0);
+        }
+
+        [Test, Description("Verifies a list of effective years are returned")]
+        public void TestGetEffectiveYears()
+        {
+            ICatWorkbookService catWorkbookService = new CatWorkbookService();
+
+            var years= catWorkbookService.GetEffectiveYears();
+
+            Assert.Greater(years.Count, 0);
+        }
+
     }
 }
