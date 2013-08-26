@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a5b7a26d-e17a-432c-a1b1-382219a47d4f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/CatWorkbookPrismPoc.WebServiceHost/CatWorkbookService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CatWorkbookService.xsd" MetadataType="Schema" ID="7a944639-7808-4846-91fd-2de6f879b4da" SourceId="1" SourceUrl="http://localhost/CatWorkbookPrismPoc.WebServiceHost/CatWorkbookService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CatWorkbookService.wsdl" MetadataType="Wsdl" ID="7a978430-62fb-40b8-ad91-f5c3e08232b7" SourceId="1" SourceUrl="http://localhost/CatWorkbookPrismPoc.WebServiceHost/CatWorkbookService.svc?wsdl" />
+    <MetadataFile FileName="CatWorkbookService1.xsd" MetadataType="Schema" ID="3549fc2a-63d1-4c73-a2c3-883a36ad7055" SourceId="1" SourceUrl="http://localhost/CatWorkbookPrismPoc.WebServiceHost/CatWorkbookService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CatWorkbookService2.xsd" MetadataType="Schema" ID="64608f0e-58a0-4528-ac4b-ab5920dc44fd" SourceId="1" SourceUrl="http://localhost/CatWorkbookPrismPoc.WebServiceHost/CatWorkbookService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CatWorkbookService.disco" MetadataType="Disco" ID="6bff16f4-463d-422f-a794-5d64ecb9ec02" SourceId="1" SourceUrl="http://localhost/CatWorkbookPrismPoc.WebServiceHost/CatWorkbookService.svc?disco" />
+    <MetadataFile FileName="CatWorkbookService3.xsd" MetadataType="Schema" ID="b40afd5c-fa61-4e90-8747-826aac63ae27" SourceId="1" SourceUrl="http://localhost/CatWorkbookPrismPoc.WebServiceHost/CatWorkbookService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

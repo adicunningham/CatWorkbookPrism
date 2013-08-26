@@ -1,15 +1,12 @@
-﻿using CatWorkbookPrismPoc.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business;
+using CatWorkbookPrismPoc.Infrastructure;
 
-namespace CatWorkbookPrismPoc.ProgramModule.Views.ViewModel
+namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
 {
     public interface IProgramViewModel : IViewModel
     {
-        string ProgramName { get; set; }
+        Program Program { get; set; }
 
+        bool IsBusy { get; set; }
     }
 }

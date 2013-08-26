@@ -6,7 +6,7 @@ using CatWorkbookPrismPoc.Services.Contracts.Faults;
 namespace CatWorkbookPrismPoc.Services.Contracts
 {
     [ServiceContract]
-    public interface ICatWorkbookService : IService
+    public interface ICatWorkbookService
     {
         [OperationContract]
         [FaultContract(typeof(ServiceException))]

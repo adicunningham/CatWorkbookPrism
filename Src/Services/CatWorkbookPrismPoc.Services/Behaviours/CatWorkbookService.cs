@@ -82,5 +82,6 @@ namespace CatWorkbookPrismPoc.Services.Behaviours
                 throw new FaultException<ServiceException>(ExceptionManager.HandleException(ex));
             }
         }
+
     }
 }

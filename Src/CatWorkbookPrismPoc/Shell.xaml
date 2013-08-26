@@ -1,9 +1,17 @@
 ﻿<Window x:Class="Endurance.Re.CatWorkbookPrismPoc.Shell"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:prism="http://www.codeplex.com/prism"   
+        xmlns:prism="http://www.codeplex.com/prism"
+        xmlns:inf="clr-namespace:CatWorkbookPrismPoc.Infrastructure;assembly=CatWorkbookPrismPoc.Infrastructure"
         Title="Shell" Height="800" Width="800">
-    <Grid>
-        <ContentControl prism:RegionManager.RegionName="ProgramRegion"/>
-    </Grid>
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" KeyboardNavigation.TabNavigation="None">
+            <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" DockPanel.Dock="Top" prism:RegionManager.RegionName="{x:Static inf:RegionNames.ToolbarRegion}"/>-->
+            <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ToolbarRegion}" HorizontalAlignment="Stretch"/>
+        </DockPanel>
+        <ContentControl Name="StatusBarRegion" DockPanel.Dock="Bottom"  prism:RegionManager.RegionName="{x:Static inf:RegionNames.StatusbarRegion}"/>
+        <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ProgramRegion}" HorizontalAlignment="Stretch" BorderBrush="LightGray" BorderThickness="2"/>
+        
+        
+    </DockPanel>
 </Window>

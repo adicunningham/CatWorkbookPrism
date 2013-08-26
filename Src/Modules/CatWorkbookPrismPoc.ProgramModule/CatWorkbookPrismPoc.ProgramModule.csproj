@@ -42,6 +42,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,6 +55,10 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit.Extended, Version=1.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\WPFToolKit\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ProgramModule.cs" />
@@ -92,10 +98,17 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Business\CatWorkbookPrismPoc.Business\CatWorkbookPrismPoc.Business.csproj">
+      <Project>{5b115354-6d58-49d5-92f0-3f43f0b38020}</Project>
+      <Name>CatWorkbookPrismPoc.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\CatWorkbookPrismPoc.Infrastructure\CatWorkbookPrismPoc.Infrastructure.csproj">
       <Project>{eaab4e07-a770-402b-bb2c-9fc4cf8f7d41}</Project>
       <Name>CatWorkbookPrismPoc.Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

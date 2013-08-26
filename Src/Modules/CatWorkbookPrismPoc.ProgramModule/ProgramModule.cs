@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CatWorkbookPrismPoc.Infrastructure;
+using CatWorkbookPrismPoc.Infrastructure.Repositories;
 using CatWorkbookPrismPoc.ProgramModule.ViewModel;
 using CatWorkbookPrismPoc.ProgramModule.Views;
-using CatWorkbookPrismPoc.ProgramModule.Views.ViewModel;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
@@ -29,7 +24,7 @@ namespace CatWorkbookPrismPoc.ProgramModule
         {
             RegisterTypesAndServices();
 
-            _regionManager.RegisterViewWithRegion("ProgramRegion", typeof (ProgramView));
+            _regionManager.RegisterViewWithRegion(RegionNames.ProgramRegion, typeof (ProgramView));
         }
 
         private void RegisterTypesAndServices()
