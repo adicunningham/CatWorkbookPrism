@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization.Formatters;
+using System.Security.AccessControl;
+using System.ServiceModel.Channels;
 using System.Threading.Tasks;
 using CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business;
 using CatWorkbookPrismPoc.Infrastructure;
@@ -31,31 +34,43 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
             _programRepository = programRepository;
             _programService = programService;
 
-            LoadProgramCommand = new DelegateCommand(SelectProgram, CanSelectProgram);
-            ApplicationCommands.OpenProgram.RegisterCommand(LoadProgramCommand);
+            SelectProgramCommand = new DelegateCommand(SelectProgram, CanSelectProgram);
+            ApplicationCommands.OpenProgram.RegisterCommand(SelectProgramCommand);
 
+            //LoadProgramCommand = new DelegateCommand(LoadProgram, CanLoadProgram);
             LoadEffectiveYears();
             LoadUnderwriters();
-            //LoadProgram();
         }
 
 
        
         #endregion
 
+        #region Events
+
+        #endregion
+
         #region Commands
 
+        public DelegateCommand SelectProgramCommand { get; set; }
         public DelegateCommand LoadProgramCommand { get; set; }
 
         private bool CanSelectProgram()
         {
-            return (Underwriters != null && Underwriters.Count > 0) && (EffectiveYears != null && EffectiveYears.Count > 0);
+            return true;//(Underwriters != null && Underwriters.Count > 0) && (EffectiveYears != null && EffectiveYears.Count > 0);
         }
 
         private void SelectProgram()
         {
             WindowState = WindowState.Open;
         }
+
+
+        private bool CanLoadProgram()
+        {
+            return SelectedYear > 0;
+        }
+
 
 
         #endregion
@@ -140,15 +155,104 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
                 RaisePropertyChanged("EffectiveYears");
             }
         }
- 
+
+
+        private int? _selectedYear;
+
+        public int? SelectedYear
+        {
+            get
+            {
+                return _selectedYear;
+            }
+            set
+            {
+                _selectedYear = value;
+                MessageBox.Show("Selected Year Changed");
+                RaisePropertyChanged("SelectedYear");
+                LoadProgramList();
+            }
+        }
+
+
+        private KeyValuePair<int, string> _selectedUnderwriter;
+
+        public KeyValuePair<int, string> SelectedUnderwriter
+        {
+            get
+            {
+                return _selectedUnderwriter;
+            }
+            set
+            {
+                _selectedUnderwriter = value;
+                RaisePropertyChanged("SelectedUnderwriter");
+
+                LoadProgramList();
+            }
+        }
+
+        private Program _selectdProgram;
+
+        public Program SelectedProgram
+        {
+            get
+            {
+                return _selectdProgram;
+            }
+            set
+            {
+                _selectdProgram = value;
+                RaisePropertyChanged("SelectedProgram");
+                MessageBox.Show("Selected Program: " + _selectdProgram.ProgramName);
+            }
+        }
+
+        private IList<Program> _programs;
+
+        public IList<Program> Programs
+        {
+            get
+            {
+                return _programs;
+            }
+            set
+            {
+                _programs = value;
+                RaisePropertyChanged("Programs");
+            }
+        }
         #endregion
 
         #region Methods
 
-        private void LoadProgram()
+        private void LoadProgramList()
+        {
+            if (SelectedUnderwriter.Key > 0 && SelectedYear != null)
+            {
+                LoadProgramList(SelectedUnderwriter.Key, SelectedYear.Value);
+            }
+        }
+
+        private async void LoadProgramList(int undewriterId, int effectiveYear)
         {
             IsBusy = true;
-            int programId = 44559;
+            var programsTask = Task.Factory.StartNew(() => _programService.GetPrograms(undewriterId, effectiveYear));
+            var programs = await programsTask;
+            await programs.ContinueWith(e =>
+            {
+                if (e.IsCompleted)
+                {
+                    IsBusy = false;
+                    Programs = e.Result;
+                }
+            });
+        }
+
+        private async void LoadProgram(int programId)
+        {
+            IsBusy = true;
+            
             _programService.GetProgramByIdAsync(programId, (sender, result) =>
             {
                 Program = (Program) result.Object;

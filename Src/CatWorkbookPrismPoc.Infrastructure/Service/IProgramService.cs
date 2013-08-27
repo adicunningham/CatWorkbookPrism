@@ -13,5 +13,7 @@ namespace CatWorkbookPrismPoc.Infrastructure.Service
         Task<Dictionary<int, string>> GetUnderwritersAsync();
 
         Task<IList<int>> GetEffectiveYearsAsync();
+
+        Task<IList<Program>> GetPrograms(int underwriterId, int effectiveYear);
     }
 }

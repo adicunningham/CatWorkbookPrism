@@ -21,5 +21,9 @@ namespace CatWorkbookPrismPoc.Services.Contracts
         [FaultContract(typeof (ServiceException))]
         IList<int> GetEffectiveYears();
 
+        [OperationContract]
+        [FaultContract(typeof (ServiceException))]
+        IList<Program> GetPrograms(int underwriterId, int year);
+
     }
 }

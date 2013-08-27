@@ -484,6 +484,14 @@ namespace CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatWorkbookService/GetEffectiveYears", ReplyAction="http://tempuri.org/ICatWorkbookService/GetEffectiveYearsResponse")]
         System.Threading.Tasks.Task<int[]> GetEffectiveYearsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatWorkbookService/GetPrograms", ReplyAction="http://tempuri.org/ICatWorkbookService/GetProgramsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business.ServiceException), Action="http://tempuri.org/ICatWorkbookService/GetProgramsServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/CatWorkbookPrismPoc.Services.Contracts.Fa" +
+            "ults")]
+        CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business.Program[] GetPrograms(int underwriterId, int year);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatWorkbookService/GetPrograms", ReplyAction="http://tempuri.org/ICatWorkbookService/GetProgramsResponse")]
+        System.Threading.Tasks.Task<CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business.Program[]> GetProgramsAsync(int underwriterId, int year);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -535,6 +543,14 @@ namespace CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business {
         
         public System.Threading.Tasks.Task<int[]> GetEffectiveYearsAsync() {
             return base.Channel.GetEffectiveYearsAsync();
+        }
+        
+        public CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business.Program[] GetPrograms(int underwriterId, int year) {
+            return base.Channel.GetPrograms(underwriterId, year);
+        }
+        
+        public System.Threading.Tasks.Task<CatWorkbookPrismPoc.Business.CatWorkbookPrisimPoc.Business.Program[]> GetProgramsAsync(int underwriterId, int year) {
+            return base.Channel.GetProgramsAsync(underwriterId, year);
         }
     }
 }

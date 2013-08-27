@@ -74,5 +74,21 @@ namespace CatWorkbookPrismPoc.ServiceModule
             });
             return await task.ConfigureAwait(false);
         }
+
+        /// <summary>
+        /// Returns a list of programs filterd by Underwriter and Effective year.
+        /// </summary>
+        /// <param name="underwriterId">Integer representing underwriter</param>
+        /// <param name="effectiveYear">Effective Year</param>
+        /// <returns></returns>
+        public async Task<IList<Program>> GetPrograms(int underwriterId, int effectiveYear)
+        {
+            var task = Task.Factory.StartNew(() =>
+            {
+                var programs = ServiceFacade.CatWorkbookService.GetPrograms(underwriterId, effectiveYear);
+                return programs;
+            });
+            return await task.ConfigureAwait(false);
+        }
     }
 }

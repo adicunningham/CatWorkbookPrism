@@ -36,6 +36,15 @@
   <wsdl:message name="ICatWorkbookService_GetEffectiveYears_ServiceExceptionFault_FaultMessage">
     <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/CatWorkbookPrismPoc.Services.Contracts.Faults" name="detail" element="q3:ServiceException" />
   </wsdl:message>
+  <wsdl:message name="ICatWorkbookService_GetPrograms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrograms" />
+  </wsdl:message>
+  <wsdl:message name="ICatWorkbookService_GetPrograms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatWorkbookService_GetPrograms_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/CatWorkbookPrismPoc.Services.Contracts.Faults" name="detail" element="q4:ServiceException" />
+  </wsdl:message>
   <wsdl:portType name="ICatWorkbookService">
     <wsdl:operation name="GetProgramById">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatWorkbookService/GetProgramById" message="tns:ICatWorkbookService_GetProgramById_InputMessage" />
@@ -51,6 +60,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICatWorkbookService/GetEffectiveYears" message="tns:ICatWorkbookService_GetEffectiveYears_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatWorkbookService/GetEffectiveYearsResponse" message="tns:ICatWorkbookService_GetEffectiveYears_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/ICatWorkbookService/GetEffectiveYearsServiceExceptionFault" name="ServiceExceptionFault" message="tns:ICatWorkbookService_GetEffectiveYears_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrograms">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatWorkbookService/GetPrograms" message="tns:ICatWorkbookService_GetPrograms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatWorkbookService/GetProgramsResponse" message="tns:ICatWorkbookService_GetPrograms_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICatWorkbookService/GetProgramsServiceExceptionFault" name="ServiceExceptionFault" message="tns:ICatWorkbookService_GetPrograms_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CatWorkbookService" type="tns:ICatWorkbookService">
@@ -81,6 +95,18 @@
     </wsdl:operation>
     <wsdl:operation name="GetEffectiveYears">
       <soap:operation soapAction="http://tempuri.org/ICatWorkbookService/GetEffectiveYears" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrograms">
+      <soap:operation soapAction="http://tempuri.org/ICatWorkbookService/GetPrograms" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

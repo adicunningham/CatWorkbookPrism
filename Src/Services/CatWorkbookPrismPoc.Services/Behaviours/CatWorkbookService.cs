@@ -116,5 +116,22 @@ namespace CatWorkbookPrismPoc.Services.Behaviours
                 return years;
             }
         }
+
+        /// <summary>
+        /// Returns a list of programs
+        /// </summary>
+        /// <returns></returns>
+        public IList<DataContract.Program> GetPrograms(int underwriterId, int effectiveYear)
+        {
+            using (var context = new DataModel.UWWorkbookContext())
+            {
+                IList<DataModel.Program> dmPrograms =
+                    context.Programs.Where(
+                        p => p.UnderwriterID == underwriterId && p.Year == effectiveYear).ToList();
+
+                var dcPrograms = Mapper.Map<IList<DataContract.Program>>(dmPrograms);
+                return dcPrograms;
+            }
+        }
     }
 }
