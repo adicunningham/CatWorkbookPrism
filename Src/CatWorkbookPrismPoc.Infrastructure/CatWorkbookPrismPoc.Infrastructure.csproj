@@ -40,6 +40,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\Prism\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
+    <Reference Include="RibbonControlsLibrary">
+      <HintPath>..\..\Lib\Ribbon\RibbonControlsLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -58,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Commands\ApplicationCommands.cs" />
     <Compile Include="Events\ProgramChanged.cs" />
+    <Compile Include="RegionAdators\RibbonRegionAdapter.cs" />
     <Compile Include="Service\IProgramService.cs" />
     <Compile Include="Service\IService.cs" />
     <Compile Include="IView.cs" />
@@ -79,7 +83,7 @@
     <Compile Include="RegionNames.cs" />
     <Compile Include="Repositories\IProgramRepository.cs" />
     <Compile Include="Service\ServiceResult.cs" />
-    <Compile Include="StackPanelRegionAdapter.cs" />
+    <Compile Include="RegionAdators\StackPanelRegionAdapter.cs" />
     <Compile Include="ViewModelBase.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

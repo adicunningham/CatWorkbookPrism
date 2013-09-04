@@ -12,5 +12,9 @@ namespace CatWorkbookPrismPoc.Infrastructure
        public static string ToolbarRegion = "ToolbarRegion";
        public static string StatusbarRegion = "StatusBarRegion";
        public static string StructureRegion = "StructureRegion";
+       public static string RibbonRegion = "RibbonRegion";
+       public static string NavigatorRegion = "NavigatorRegion";
+       public static string WorkspaceRegion = "WorkspaceRegion";
+       public static string TaskbuttonRegion = "TaskbuttonRegion";
    }
 }

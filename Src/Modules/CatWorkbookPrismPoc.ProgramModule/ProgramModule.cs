@@ -24,7 +24,7 @@ namespace CatWorkbookPrismPoc.ProgramModule
         {
             RegisterTypesAndServices();
 
-            _regionManager.RegisterViewWithRegion(RegionNames.ProgramRegion, typeof (ProgramView));
+            _regionManager.RegisterViewWithRegion(RegionNames.NavigatorRegion, typeof (ProgramView));
         }
 
         private void RegisterTypesAndServices()
