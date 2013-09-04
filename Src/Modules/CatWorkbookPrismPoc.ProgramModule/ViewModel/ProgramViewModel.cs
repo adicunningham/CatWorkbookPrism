@@ -37,9 +37,14 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
             SelectProgramCommand = new DelegateCommand(SelectProgram, CanSelectProgram);
             ApplicationCommands.OpenProgram.RegisterCommand(SelectProgramCommand);
 
-            //LoadProgramCommand = new DelegateCommand(LoadProgram, CanLoadProgram);
+            CloseSelectProgramCommand = new DelegateCommand(CloseSelectProgramWindow);
             LoadEffectiveYears();
             LoadUnderwriters();
+        }
+
+        private void CloseSelectProgramWindow()
+        {
+            WindowState = WindowState.Closed;
         }
 
 
@@ -53,7 +58,7 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
         #region Commands
 
         public DelegateCommand SelectProgramCommand { get; set; }
-        public DelegateCommand LoadProgramCommand { get; set; }
+        public DelegateCommand CloseSelectProgramCommand { get; set; }
 
         private bool CanSelectProgram()
         {
@@ -64,14 +69,6 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
         {
             WindowState = WindowState.Open;
         }
-
-
-        private bool CanLoadProgram()
-        {
-            return SelectedYear > 0;
-        }
-
-
 
         #endregion
 
@@ -177,6 +174,9 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
 
         private KeyValuePair<int, string> _selectedUnderwriter;
 
+        /// <summary>
+        /// Selected Underwriter
+        /// </summary>
         public KeyValuePair<int, string> SelectedUnderwriter
         {
             get
@@ -194,6 +194,9 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
 
         private Program _selectdProgram;
 
+        /// <summary>
+        /// Selected Program
+        /// </summary>
         public Program SelectedProgram
         {
             get
@@ -204,12 +207,15 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
             {
                 _selectdProgram = value;
                 RaisePropertyChanged("SelectedProgram");
-                MessageBox.Show("Selected Program: " + _selectdProgram.ProgramName);
+                LoadProgramAsync(_selectdProgram.ProgramID);
             }
         }
 
         private IList<Program> _programs;
 
+        /// <summary>
+        /// List of Programs
+        /// </summary>
         public IList<Program> Programs
         {
             get
@@ -226,15 +232,23 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
 
         #region Methods
 
+        /// <summary>
+        /// Loads list of Programs
+        /// </summary>
         private void LoadProgramList()
         {
             if (SelectedUnderwriter.Key > 0 && SelectedYear != null)
             {
-                LoadProgramList(SelectedUnderwriter.Key, SelectedYear.Value);
+                LoadProgramListAsync(SelectedUnderwriter.Key, SelectedYear.Value);
             }
         }
 
-        private async void LoadProgramList(int undewriterId, int effectiveYear)
+        /// <summary>
+        /// Loads a list of programs filtered by Underwriter Id and Effectieve year asychronously
+        /// </summary>
+        /// <param name="undewriterId"></param>
+        /// <param name="effectiveYear"></param>
+        private async void LoadProgramListAsync(int undewriterId, int effectiveYear)
         {
             IsBusy = true;
             var programsTask = Task.Factory.StartNew(() => _programService.GetPrograms(undewriterId, effectiveYear));
@@ -249,13 +263,17 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
             });
         }
 
-        private async void LoadProgram(int programId)
+        /// <summary>
+        /// Load program with specified ID.
+        /// </summary>
+        /// <param name="programId"></param>
+        private void LoadProgramAsync(int programId)
         {
             IsBusy = true;
             
             _programService.GetProgramByIdAsync(programId, (sender, result) =>
             {
-                Program = (Program) result.Object;
+                Program = result.Object;
                 IsBusy = false;
             });
         }
@@ -276,6 +294,10 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
             });
         }
 
+
+        /// <summary>
+        /// Load effective years
+        /// </summary>
         private async void LoadEffectiveYears()
         {
             var yearsTask = Task.Factory.StartNew(() => _programService.GetEffectiveYearsAsync());
@@ -290,10 +312,6 @@ namespace CatWorkbookPrismPoc.ProgramModule.ViewModel
 
         }
 
-        private async void LoadPrograms()
-        {
-            
-        }
         #endregion
 
     }

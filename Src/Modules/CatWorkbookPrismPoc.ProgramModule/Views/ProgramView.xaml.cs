@@ -13,6 +13,8 @@ namespace CatWorkbookPrismPoc.ProgramModule.Views
             InitializeComponent();
 
             ViewModel = progamViewModel;
+
+            
         }
 
         public IViewModel ViewModel

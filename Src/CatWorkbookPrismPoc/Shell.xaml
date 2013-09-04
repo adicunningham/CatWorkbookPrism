@@ -7,11 +7,13 @@
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" KeyboardNavigation.TabNavigation="None">
             <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" DockPanel.Dock="Top" prism:RegionManager.RegionName="{x:Static inf:RegionNames.ToolbarRegion}"/>-->
-            <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ToolbarRegion}" HorizontalAlignment="Stretch"/>
+            <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ToolbarRegion}" HorizontalAlignment="Stretch" BorderBrush="LightCoral" BorderThickness="2"/>
         </DockPanel>
-        <ContentControl Name="StatusBarRegion" DockPanel.Dock="Bottom"  prism:RegionManager.RegionName="{x:Static inf:RegionNames.StatusbarRegion}"/>
-        <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ProgramRegion}" HorizontalAlignment="Stretch" BorderBrush="LightGray" BorderThickness="2"/>
-        
-        
+        <ContentControl Name="StatusBarRegion" DockPanel.Dock="Bottom"  prism:RegionManager.RegionName="{x:Static inf:RegionNames.StatusbarRegion}" BorderBrush="LawnGreen" BorderThickness="2"/>
+        <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ProgramRegion}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="100px"/>
+        <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.StructureRegion}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="100px"/>
+
+
+
     </DockPanel>
 </Window>
