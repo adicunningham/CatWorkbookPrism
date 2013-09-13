@@ -45,7 +45,7 @@
     </Reference>
     <Reference Include="RibbonControlsLibrary, Version=4.0.0.11019, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Prism4Demo\Prism4Demo\Prism4Demo\Prism4Demo.Library\Ribbon\RibbonControlsLibrary.dll</HintPath>
+      <HintPath>..\..\..\Lib\Ribbon\RibbonControlsLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
