@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FsTaskButton">
+      <HintPath>..\..\..\Lib\TaskButton\FsTaskButton.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Lib\Prism\Microsoft.Practices.Prism.dll</HintPath>
@@ -61,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ProgramModuleViewCommand.cs" />
     <Compile Include="ProgramModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -75,9 +79,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModel\IProgramModuleTaskButtonViewModel.cs" />
     <Compile Include="ViewModel\IProgramViewModel.cs" />
+    <Compile Include="ViewModel\ProgramModuleTaskButtonViewModel.cs" />
     <Compile Include="ViewModel\ProgramViewModel.cs" />
+    <Compile Include="Views\IProgramModuleTaskButton.cs" />
     <Compile Include="Views\IProgramView.cs" />
+    <Compile Include="Views\ProgramModuleTaskButtonView.xaml.cs">
+      <DependentUpon>ProgramModuleTaskButtonView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProgramView.xaml.cs">
       <DependentUpon>ProgramView.xaml</DependentUpon>
     </Compile>
@@ -92,6 +102,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\ProgramModuleTaskButtonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProgramView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -109,6 +123,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Views\Images\LargeIcon.png" />
+    <Resource Include="Views\Images\module_a.png" />
+    <Resource Include="Views\Images\SmallIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

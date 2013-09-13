@@ -1,4 +1,5 @@
-﻿using CatWorkbookPrismPoc.Infrastructure;
+﻿using System;
+using CatWorkbookPrismPoc.Infrastructure;
 using CatWorkbookPrismPoc.Infrastructure.Repositories;
 using CatWorkbookPrismPoc.ProgramModule.ViewModel;
 using CatWorkbookPrismPoc.ProgramModule.Views;
@@ -24,13 +25,15 @@ namespace CatWorkbookPrismPoc.ProgramModule
         {
             RegisterTypesAndServices();
 
-            _regionManager.RegisterViewWithRegion(RegionNames.NavigatorRegion, typeof (ProgramView));
+            _regionManager.RegisterViewWithRegion(RegionNames.TaskbuttonRegion, typeof (ProgramModuleTaskButtonView));
         }
 
         private void RegisterTypesAndServices()
         {
-            _container.RegisterType<IProgramView, ProgramView>();
+            _container.RegisterType<Object, ProgramView>("ProgramModuleWorkspace");
             _container.RegisterType<IProgramViewModel, ProgramViewModel>();
+            _container.RegisterType<IProgramModuleTaskButtonView, ProgramModuleTaskButtonView>();
+            _container.RegisterType<IProgramModuleTaskButtonViewModel, ProgramModuleTaskButtonViewModel>();
         }
     }
 }
