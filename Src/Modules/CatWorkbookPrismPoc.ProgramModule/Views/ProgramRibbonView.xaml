@@ -1,0 +1,18 @@
+﻿<ribbon:RibbonTab x:Class="CatWorkbookPrismPoc.ProgramModule.Views.ProgramRibbonView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon"
+             mc:Ignorable="d" Header="Program Tab">
+    
+    <!-- See code-behind for implementation of IRegionMemberLifetime interface. This interface
+    causes the RibbonTab to be unloaded from the Ribbon when we switch views. -->
+
+    <ribbon:RibbonGroup Header="Group A1">
+        <ribbon:RibbonButton LargeImageSource="Images\LargeFileOpenIcon.jpg" Label="Select Program" Command="{Binding SelectProgramCommand}" />
+        <ribbon:RibbonButton SmallImageSource="Images\SmallIcon.png" Label="Button A2" />
+        <ribbon:RibbonButton SmallImageSource="Images\SmallIcon.png" Label="Button A3" />
+        <ribbon:RibbonButton SmallImageSource="Images\SmallIcon.png" Label="Button A4" />
+    </ribbon:RibbonGroup>
+</ribbon:RibbonTab>

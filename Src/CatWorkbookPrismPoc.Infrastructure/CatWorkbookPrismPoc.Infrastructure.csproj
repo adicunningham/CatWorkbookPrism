@@ -61,7 +61,7 @@
   <ItemGroup>
     <Compile Include="Commands\ApplicationCommands.cs" />
     <Compile Include="Events\ProgramChanged.cs" />
-    <Compile Include="NavigationCompletedEvent.cs" />
+    <Compile Include="Events\NavigationCompletedEvent.cs" />
     <Compile Include="RegionAdators\RibbonRegionAdapter.cs" />
     <Compile Include="Service\IProgramService.cs" />
     <Compile Include="Service\IService.cs" />

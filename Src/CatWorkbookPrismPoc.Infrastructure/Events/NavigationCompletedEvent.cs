@@ -1,6 +1,6 @@
 ﻿using Microsoft.Practices.Prism.Events;
 
-namespace CatWorkbookPrismPoc.Infrastructure
+namespace CatWorkbookPrismPoc.Infrastructure.Events
 {
     /// <summary>
     /// A composite Presentation event 

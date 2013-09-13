@@ -43,6 +43,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Lib\Prism\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
+    <Reference Include="RibbonControlsLibrary, Version=4.0.0.11019, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Prism4Demo\Prism4Demo\Prism4Demo\Prism4Demo.Library\Ribbon\RibbonControlsLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -66,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Commands\ProgramModuleViewCommand.cs" />
     <Compile Include="ProgramModule.cs" />
+    <Compile Include="ProgramModuleConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -83,10 +88,18 @@
     <Compile Include="ViewModel\IProgramViewModel.cs" />
     <Compile Include="ViewModel\ProgramModuleTaskButtonViewModel.cs" />
     <Compile Include="ViewModel\ProgramViewModel.cs" />
-    <Compile Include="Views\IProgramModuleTaskButton.cs" />
+    <Compile Include="Views\IProgramModuleNavigatorView.cs" />
+    <Compile Include="Views\IProgramModuleTaskButtonView.cs" />
+    <Compile Include="Views\IProgramRibbonView.cs" />
     <Compile Include="Views\IProgramView.cs" />
+    <Compile Include="Views\ProgramModuleNavigatorView.xaml.cs">
+      <DependentUpon>ProgramModuleNavigatorView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProgramModuleTaskButtonView.xaml.cs">
       <DependentUpon>ProgramModuleTaskButtonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProgramRibbonView.xaml.cs">
+      <DependentUpon>ProgramRibbonView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProgramView.xaml.cs">
       <DependentUpon>ProgramView.xaml</DependentUpon>
@@ -102,7 +115,15 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\ProgramModuleNavigatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProgramModuleTaskButtonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProgramRibbonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -124,7 +145,9 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Views\Images\LargeFileOpenIcon.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Images\LargeIcon.png" />
     <Resource Include="Views\Images\module_a.png" />

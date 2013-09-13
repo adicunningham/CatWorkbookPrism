@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using CatWorkbookPrismPoc.Infrastructure;
+using CatWorkbookPrismPoc.Infrastructure.Events;
 using CatWorkbookPrismPoc.ProgramModule.ViewModel;
+using CatWorkbookPrismPoc.ProgramModule.Views;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 
@@ -60,19 +62,19 @@ namespace CatWorkbookPrismPoc.ProgramModule.Commands
         public void Execute(object parameter)
         {
             // Show Ribbon Tab
-            var programModuleTab = new Uri("ProgramModuleTab", UriKind.Relative);
-            _regionManager.RequestNavigate("RibbonRegion", programModuleTab);
+            var programModuleTab = new Uri(typeof(ProgramRibbonView).FullName, UriKind.Relative);
+            _regionManager.RequestNavigate(RegionNames.RibbonRegion, programModuleTab);
 
             // Show Navigator
-            var programModuleNavigator = new Uri("ProgramModuleNavigator", UriKind.Relative);
-            _regionManager.RequestNavigate("NavigatorRegion", programModuleNavigator);
+            var programModuleNavigator = new Uri(typeof(ProgramModuleNavigatorView).FullName, UriKind.Relative);
+            _regionManager.RequestNavigate(RegionNames.NavigatorRegion, programModuleNavigator);
 
             /* We invoke the NavigationCompleted() callback 
              * method in our final  navigation request. */
 
             // Show Workspace
-            var programModuleWorkspace = new Uri("ProgramModuleWorkspace", UriKind.Relative);
-            _regionManager.RequestNavigate("WorkspaceRegion", programModuleWorkspace, NavigationCompleted);
+            var programModuleWorkspace = new Uri(typeof(ProgramView).FullName, UriKind.Relative);
+            _regionManager.RequestNavigate(RegionNames.WorkspaceRegion, programModuleWorkspace, NavigationCompleted);
         }
 
 

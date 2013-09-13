@@ -59,10 +59,16 @@
             </ribbon:Ribbon.QuickAccessToolBar>
 
             <!-- Home Tab (defined here) -->
-            <ribbon:RibbonTab Name="HomeTab" Header="Home">
-                <ribbon:RibbonGroup Header="Group 1"></ribbon:RibbonGroup>
+            <ribbon:RibbonTab x:Name="HomeTab"  Header="Home">
+                <ribbon:RibbonGroup Header="Group S1">  
+                    <ribbon:RibbonButton LargeImageSource="Images\LargeIcon.png" Label="Button S1" />
+                    <ribbon:RibbonButton SmallImageSource="Images\SmallIcon.png" Label="Button S2" />
+                    <ribbon:RibbonButton SmallImageSource="Images\SmallIcon.png" Label="Button S3" />
+                    <ribbon:RibbonButton SmallImageSource="Images\SmallIcon.png" Label="Button S4" />
+                </ribbon:RibbonGroup>
             </ribbon:RibbonTab>
         </ribbon:Ribbon>
+        
         <!-- Client Area (define here) -->
         <Grid x:Name="ClientArea" Grid.Row="1">
                 

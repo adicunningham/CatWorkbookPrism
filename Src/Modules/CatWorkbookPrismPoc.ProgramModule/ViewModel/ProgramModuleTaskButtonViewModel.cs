@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using CatWorkbookPrismPoc.Infrastructure;
+using CatWorkbookPrismPoc.Infrastructure.Events;
 using CatWorkbookPrismPoc.ProgramModule.Commands;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;

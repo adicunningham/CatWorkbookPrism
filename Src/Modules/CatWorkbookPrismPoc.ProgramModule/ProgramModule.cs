@@ -30,7 +30,9 @@ namespace CatWorkbookPrismPoc.ProgramModule
 
         private void RegisterTypesAndServices()
         {
-            _container.RegisterType<Object, ProgramView>("ProgramModuleWorkspace");
+            _container.RegisterType<Object, ProgramView>(typeof(ProgramView).FullName);
+            _container.RegisterType<Object, ProgramModuleNavigatorView>(typeof(ProgramModuleNavigatorView).FullName);
+            _container.RegisterType<Object, ProgramRibbonView>(typeof(ProgramRibbonView).FullName);
             _container.RegisterType<IProgramViewModel, ProgramViewModel>();
             _container.RegisterType<IProgramModuleTaskButtonView, ProgramModuleTaskButtonView>();
             _container.RegisterType<IProgramModuleTaskButtonViewModel, ProgramModuleTaskButtonViewModel>();
